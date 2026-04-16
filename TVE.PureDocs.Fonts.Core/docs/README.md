@@ -1,6 +1,6 @@
 # TVE.PureDocs.Fonts.Core
 
-**TVE.PureDocs.Fonts.Core** là một thư viện .NET hiệu năng cao, được thiết kế để phân tích (parse), trích xuất thông tin (metrics extractor) và tạo tập con (subsetting) cho các tệp font TrueType (TTF) và OpenType (OTF). 
+**TVE.PureDocs.Fonts.Core** là một thư viện .NET hiệu năng cao, được thiết kế để phân tích (parse), trích xuất thông tin (metrics extractor) và tạo tập con (subsetting) cho các tệp font TrueType (TTF) và OpenType (OTF).
 
 Thư viện này được xây dựng với triết lý **"Zero third-party dependencies"** (không phụ thuộc vào bên thứ ba) và sử dụng tối ưu bộ nhớ thông qua `ReadOnlyMemory<byte>` và `Span<byte>`.
 
@@ -16,7 +16,9 @@ Thư viện này được xây dựng với triết lý **"Zero third-party depe
 Dự án được tổ chức theo các lớp chức năng tách biệt:
 
 ### 1. Lớp Dữ liệu (Tables)
+
 Chứa các định nghĩa và logic phân tích cho từng bảng (Table) tiêu chuẩn của định dạng TrueType/OpenType:
+
 - `HeadTable`: Thông tin chung về font (unitsPerEm, checksum...).
 - `HheaTable` & `HmtxTable`: Thông tin về số liệu ngang (Horizontal Metrics).
 - `GlyfTable` & `LocaTable`: Chứa dữ liệu glyph (đường bao) và vị trí của chúng.
@@ -26,10 +28,12 @@ Chứa các định nghĩa và logic phân tích cho từng bảng (Table) tiêu
 - `Os2Table`: Thông tin đặc thù cho Windows và các thông số font chuẩn.
 
 ### 2. Lớp Hạ tầng (Parsing)
+
 - `TtfFontReader`: Điểm vào (Entry point) để chuyển dữ liệu nhị phân thô thành đối tượng `TtfFontData`.
 - `TtfFontData`: Đối tượng bất biến (Immutable) đại diện cho toàn bộ dữ liệu font đã được xử lý, cho phép truy cập nhanh vào các bảng và thông tin metrics.
 
 ### 3. Lớp Tính năng (Functional Layer)
+
 - `Metrics`: Trích xuất và chuẩn hóa các thông số typography sang hệ tọa độ đơn vị.
 - `Mapping`: Xử lý việc ánh xạ ký tự và quản lý Glyph ID.
 - `Subsetting`: Logic cốt lõi để thu gọn font, bao gồm việc tính toán lại offset, checksum và tái cấu trúc các bảng dữ liệu.
@@ -45,6 +49,7 @@ Chứa các định nghĩa và logic phân tích cho từng bảng (Table) tiêu
 ## 🚀 Hướng dẫn sử dụng nhanh
 
 ### Đọc thông tin Font
+
 ```csharp
 using TVE.PureDocs.Fonts.Core.Parsing;
 
@@ -56,6 +61,7 @@ Console.WriteLine($"Units Per Em: {fontData.UnitsPerEm}");
 ```
 
 ### Tạo Font Subset
+
 ```csharp
 using TVE.PureDocs.Fonts.Core.Subsetting;
 
@@ -67,8 +73,10 @@ File.WriteAllBytes("Roboto-Subset.ttf", result.SubsetBytes);
 ```
 
 ## 🛠️ Yêu cầu hệ thống
+
 - .NET 6.0 trở lên.
 - Hỗ trợ đa nền tảng (Windows, Linux, macOS).
 
 ---
+
 © 2024 TVE Open Source Project. Licensed under the MIT License.

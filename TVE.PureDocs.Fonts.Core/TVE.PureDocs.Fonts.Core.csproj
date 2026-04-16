@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+        <Optimize>true</Optimize>
+        <RootNamespace>TVE.PureDocs.Fonts.Core</RootNamespace>
+        <AssemblyName>TVE.PureDocs.Fonts.Core</AssemblyName>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<NoWarn>CS1591</NoWarn>
+		
+		<!-- NuGet -->
+		<PackageId>TVE.PureDocs.Fonts.Core</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>devnn</Authors>
+		<Description>Thư viện **TVE.PureDocs.Fonts.Core** cung cấp các công cụ mạnh mẽ để phân tích (parser), trích xuất thông tin (metrics extractor) và tạo tập con (subsetter) cho font TrueType/OpenType trên đa nền tảng. Thư viện hoàn toàn không phụ thuộc vào bên thứ ba (Zero third-party dependencies).</Description>
+		<PackageTags>font;truetype;opentype;puredocs;tve;devnn</PackageTags>
+
+		<PackageProjectUrl>https://pure-docs.vuquangtrung.id.vn/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/quangtrungsoft/PureDocs.Fonts.Core</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReleaseNotes>https://github.com/quangtrungsoft/PureDocs.Fonts.Core/releases</PackageReleaseNotes>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <!-- ZERO NuGet packages. Only BCL: System.Buffers, System.Memory -->
+
+	<ItemGroup>
+		<None Include="docs\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+</Project>
